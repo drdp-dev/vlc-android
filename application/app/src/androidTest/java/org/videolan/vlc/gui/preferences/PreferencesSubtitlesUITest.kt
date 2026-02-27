@@ -36,6 +36,9 @@ class PreferencesSubtitlesUITest: BasePreferenceUITest() {
     fun checkSubtitleSizeSetting() {
         val key = KEY_SUBTITLES_SIZE
 
+        checkModeChanged(key, "28", "16", MAP_SUBTITLE_SIZE)
+        checkModeChanged(key, "25", "16", MAP_SUBTITLE_SIZE)
+        checkModeChanged(key, "22", "16", MAP_SUBTITLE_SIZE)
         checkModeChanged(key, "19", "16", MAP_SUBTITLE_SIZE)
         checkModeChanged(key, "16", "16", MAP_SUBTITLE_SIZE)
         checkModeChanged(key, "13", "16", MAP_SUBTITLE_SIZE)
@@ -64,7 +67,7 @@ class PreferencesSubtitlesUITest: BasePreferenceUITest() {
     }
 
     companion object {
-        val MAP_SUBTITLE_SIZE = mapOf("19" to R.string.subtitles_size_small, "16" to R.string.subtitles_size_normal, "13" to R.string.subtitles_size_big, "10" to R.string.subtitles_size_huge)
+        val MAP_SUBTITLE_SIZE = mapOf("28" to R.string.subtitles_size_smallest, "25" to R.string.subtitles_size_micro, "22" to R.string.subtitles_size_nano, "19" to R.string.subtitles_size_small, "16" to R.string.subtitles_size_normal, "13" to R.string.subtitles_size_big, "10" to R.string.subtitles_size_huge)
         val MAP_SUBTITLE_ENCODING = mapOf(
                 "" to "Default (Windows-1252)", "UTF-8" to "Universal (UTF-8)"
         )
