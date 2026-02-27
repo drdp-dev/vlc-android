@@ -130,7 +130,12 @@ continuous-app-build:
     script:
         - ./buildsystem/compile.sh --init
         - ./gradlew assembleDebug
+    artifacts:
+      paths:
+        - application/app/build/outputs/apk/
+      expire_in: 1 week
     rules:
+      - if: '$CI_PIPELINE_SOURCE == "push"'
       - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
         changes:
           - buildsystem/compile-remoteaccess.sh
